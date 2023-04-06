@@ -1,0 +1,55 @@
+section{
+    width: 96%;
+    margin:0 auto;
+   
+}
+.message{
+    display:flex;
+    padding:15px;
+    margin:20px 15px;
+    width: fit-content;
+    border-radius: 25px;
+}
+.message.incoming{
+    background:lightgrey;
+}
+.message.outgoing{
+    background:green;
+    color:white;
+    margin-left: auto;
+    position: relative;
+  
+}
+/* .message.label:before{
+    content:'';
+    width:90%;
+    height:2px;
+    background:black;
+    position: absolute;
+   margin-left: 0;
+   left:60px;
+   top:30px; 
+
+} */
+.message.label{
+    display: block;
+   
+    padding-top:0px;
+    padding-bottom:0px;
+
+    text-align: center;
+    width:50%;
+    margin:0 auto;
+   border-radius: 0;
+    border-bottom: 2px solid black;
+
+}
+.seen{
+    
+    align-self: flex-end;
+    color:black;
+    position: absolute;
+    bottom:-19px;
+    right:10px;
+    cursor:pointer;
+}

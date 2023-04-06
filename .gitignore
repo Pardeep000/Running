@@ -1,0 +1,16 @@
+./node_modules
+# src/assets/img
+# cert.pem
+
+# key.pem
+
+
+./build
+# ./config
+# ./src/cert.pem
+# ./src/key.pem
+node_modules
+build
+# config
+# src/assets/img
+README.md

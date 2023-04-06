@@ -1,0 +1,27 @@
+.input-check-user-module {
+    height: 12px;
+    accent-color: #55a530;
+    width: 12px;
+}
+
+.input-check-user-module :hover {
+    accent-color: #55a530;
+}
+
+.input-check-user-module ::after {
+    accent-color: #55a530;
+}
+
+.input-check-user-module :checked:after {
+    accent-color: #55a530;
+}
+
+input::placeholder {
+    font-size: 13px;
+}
+.input-check-user-module:checked ~ .checkmark {
+    background-color: #55a530;
+}
+.input-check-user-module {
+    background-color: #55a530;
+}

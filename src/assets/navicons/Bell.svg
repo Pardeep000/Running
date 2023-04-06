@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35" viewBox="0 0 35 35">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path_5340" data-name="Path 5340" d="M0,0H35V35H0Z" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_305" data-name="Mask Group 305" clip-path="url(#clip-path)">
+    <path id="notifications_black_24dp" d="M15.375,30.5a2.866,2.866,0,0,0,2.844-2.872H12.531A2.857,2.857,0,0,0,15.375,30.5Zm8.531-8.615V14.705c0-4.408-2.332-8.1-6.4-9.075V4.654a2.133,2.133,0,1,0-4.266,0V5.63c-4.081.976-6.4,4.652-6.4,9.075v7.179L4,24.756v1.436H26.75V24.756Z" transform="translate(2.125 1)" fill="#55a530"/>
+  </g>
+</svg>

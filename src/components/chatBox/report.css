@@ -1,0 +1,49 @@
+.reportlistul li{
+    list-style: none;
+    padding:1em;
+    background: white;
+    box-shadow: 0px 0px 10px 0.9px rgb(0, 0, 0,0.1);
+    border-radius: 35px ;
+    width: 200px;
+    height: 200px !important;
+    cursor:pointer;
+    transform:scale(1);
+    transition: all 0.1s linear;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.reportlistul li:hover{
+    transform: scale(1.02);
+    box-shadow: 0px 0px 10px 0.9px rgb(0, 0, 0,0.3);
+}
+
+.reportlistul{
+    display:grid;
+    width: 40%;
+    margin:100px auto;
+    grid-template-columns: auto auto;
+    grid-row-gap: 40px;
+}
+
+.switch.unchecked {
+    margin-top: -19%;
+    color: gray;
+    background-color: white;
+ 
+}
+.switch.checked {
+    margin-top: -19%;
+    color: green !important;
+    background-color: white;
+}
+/* .MuiInputBase-input:focus{
+    border: none !important;
+   
+} */
+
+.blur{
+    filter: blur(8px);
+  -webkit-filter: blur(8px);
+}

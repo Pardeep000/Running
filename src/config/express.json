@@ -1,0 +1,46 @@
+{
+  "development": {
+    "port": 8081,
+    "graphql_endpoint": "graphql",
+    "graphql_domain": "https://app.kuikwit.com",
+    "graphql_subscription_domain": "wss://app.kuikwit.com",
+    "graphql_subscription_endpoint": "subscriptions",
+    "facebook_app_id": "182095643716855",
+    "facebook_app_secret": "5b84f6b082ac1cef631126802976275c",
+    "GOOGLE_CLIENT_ID": "47068693234-t5tto07jn0v1kn06akr15837l903e5is.apps.googleusercontent.com",
+    "GOOGLE_CLIENT_SECRET": "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",
+    "SHAREABLEINVITELINK": "https://salescrm.greenmarketing.us/join/",
+    "FACEBOOK_APP_ID": "182095643716855",
+    "FACEBOOK_APP_SECRET": "5b84f6b082ac1cef631126802976275c",
+
+    "LINKEDIN_API_KEY": "779n4m4el57hoc",
+    "LINKEDIN_SECRET_KEY": "NKH7tF5qTm9f4F50"
+  },
+  "test": {
+    "port": 8080,
+    "graphql_endpoint": "graphql",
+    "graphql_domain": "http://localhost",
+    "graphql_subscription_domain": "wss://axonmediaservice.finalhostplan.com",
+    "graphql_subscription_endpoint": "subscriptions",
+    "facebook_app_id": "350573889779581",
+    "facebook_app_secret": "5b84f6b082ac1cef631126802976275c"
+  },
+  "production": {
+    "port": "8081",
+    "graphql_endpoint": "graphql",
+    "graphql_domain": "https://app.kuikwit.com",
+    "graphql_subscription_domain": "wss://app.kuikwit.com",
+    "graphql_subscription_endpoint": "subscriptions",
+    "facebook_app_id": "350573889779581",
+    "facebook_app_secret": "4071e08a750099190ff5c9b0aa063069",
+    "SHAREABLEINVITELINK": "https://app.kuikwit.com/join/",
+    "GOOGLE_CLIENT_ID": "47068693234-t5tto07jn0v1kn06akr15837l903e5is.apps.googleusercontent.com",
+    "GOOGLE_CLIENT_SECRET": "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",
+
+    "FACEBOOK_APP_ID": "350573889779581",
+    "FACEBOOK_APP_SECRET": "4071e08a750099190ff5c9b0aa063069",
+
+    "LINKEDIN_API_KEY": "779n4m4el57hoc",
+    "LINKEDIN_SECRET_KEY": "NKH7tF5qTm9f4F50"
+  }
+}

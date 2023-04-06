@@ -1,0 +1,44 @@
+.split {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 10;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .left {
+    height:"50%";
+    padding-bottom: 56px;
+    width: 70%;
+    border-right: 0.1px solid gray;
+    overflow: hidden;
+  }
+  
+  .right {
+    right: 0;
+    width: 25%;
+    padding-bottom: 56px;
+
+    
+  }
+.right2{
+  margin-left: 90%;
+}
+  
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+.icons{
+  vertical-align: center;
+  display: flex;
+  padding-left: "50%";
+  flex-flow: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}

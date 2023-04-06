@@ -1,0 +1,50 @@
+.msg-history {
+    
+    overflow-y: auto;
+    }
+    
+    .incoming-msg-img {
+      display: inline-block;
+      width: 6%;
+    }
+    .incoming-msg-img img {
+      width: 100%;
+    }
+    .incoming-msg-content {
+      display: inline-block;
+      padding: 0 0 0 10px;
+      vertical-align: top;
+      max-width: 30%;
+      }
+      .msg-card {
+        margin: 0;
+        width: 100%;
+        }
+        .msg-body {
+          background: #EEEEEE none repeat scroll 0 0;
+          border-radius: 0 15px 15px 15px;
+          padding: 5px 10px 5px 12px;
+          }
+          .message {
+            color: #646464;
+            font-size: 14px;
+          }
+          .msg-image img {
+            max-width: 100%;
+            border-radius: 10px;
+          }
+    .outgoing-msg-content {
+      overflow: hidden;
+      margin: 26px 0 26px;
+      }
+      
+        
+        
+      
+    .time_date {
+      color: #747474;
+      display: block;
+      font-size: 12px;
+      margin: 8px 0 0;
+    }
+   /*  */

@@ -1,0 +1,372 @@
+
+
+import React, { Component } from "react";
+
+import { List, Divider, Container } from "@material-ui/core";
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import { connect } from "react-redux";
+import MenuIcon from "@material-ui/icons/Menu";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import InboxIcon from "@material-ui/icons/MoveToInbox";
+import MailIcon from "@material-ui/icons/Mail";
+import { makeStyles } from "@material-ui/core/styles";
+import clsx from "clsx";
+import {
+  setAdminPanelDrawerToggle,
+  setAdminPanelChatBoxDrawerToggle,
+} from "../../store/actions/AdminpanelActions";
+import GroupAddIcon from "@material-ui/icons/GroupAdd";
+import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
+import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import MessageIcon from "@material-ui/icons/Message";
+import { useLocation } from "react-router-dom";
+import dashboardIcon from "../../assets/navicons/Dashboard.svg";
+import chatIcon from "../../assets/navicons/Chats.svg";
+import reportIcon from "../../assets/navicons/Reports.svg";
+import trafficIcon from "../../assets/navicons/Traffic.svg";
+import userIcon from "../../assets/navicons/Users.svg";
+import dashboardGIcon from "../../assets/navicons/DashboardG.svg";
+import chatGIcon from "../../assets/navicons/ChatsG.svg";
+import reportGIcon from "../../assets/navicons/ReportsG.svg";
+import trafficGIcon from "../../assets/navicons/TrafficG.svg";
+import settingIcon from "../../assets/navicons/Settings.svg";
+import settingGIcon from "../../assets/navicons/SettingsG.svg";
+import helpIcon from "../../assets/navicons/Help.svg";
+import helpGIcon from "../../assets/navicons/HelpG.svg";
+import LogoutIcon from "../../assets/navicons/Logout.svg";
+import LogoutGIcon from "../../assets/navicons/LogoutG.svg";
+import { useMutation } from "@apollo/react-hooks";
+import { gql } from "apollo-boost";
+import userGIcon from "../../assets/navicons/UsersG.svg";
+import { useEffect } from "react";
+const useStyles = makeStyles((theme) => ({
+  navListItem: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+
+    padding: "4px",
+    "&:hover": {
+      navListText: {
+        color: "white",
+        fontWeight: "500",
+        transition: theme.transitions.create(["color"], {
+          easing: theme.transitions.easing.sharp,
+          duration: theme.transitions.duration.standard,
+          delay: 100,
+        }),
+      },
+    },
+  },
+  navListIcon: {
+    margin: "auto",
+    textAlign: "center",
+
+    // color: "rgb(255 255 255 / 80%)",
+    color: "#8e8e8e",
+    fontSize: 28,
+  },
+  navListText: {
+    marginTop: 0,
+    textAlign: "left",
+    color: "#8e8e8e",
+  },
+  listLink: {
+    textDecoration: "none",
+    // marginLeft: 5,
+    display: "flex",
+  },
+  linkSelected: {
+    background: "#edf5ec",
+    borderLeft: "4px solid #79c646",
+    marginLeft: 0,
+  },
+  linkSelectedInner: {
+    color: "#79c646",
+  },
+  ListMain: {
+    display: "flex",
+    height: "calc(100vh - 70px)",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "space-between",
+  },
+}));
+
+const NavigationList = (props) => {
+  const classes = useStyles();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname == "/chat") {
+      props.setAdminPanelChatBoxDrawerToggle(true);
+    } else {
+      props.setAdminPanelChatBoxDrawerToggle(false);
+    }
+  }, [location]);
+
+  const LogoutQuery = gql`
+    mutation {
+      logout {
+        success
+        error
+      }
+    }
+  `;
+
+  let [
+    logout,
+    {
+      loading: logoutQueryLoading,
+      error: logoutQueryError,
+      data: logoutQueryResult,
+    },
+  ] = useMutation(LogoutQuery);
+  useEffect(() => {
+    if (logoutQueryResult && logoutQueryResult.logout) {
+      window.location = "/login";
+    }
+  }, [logoutQueryResult]);
+
+  return (
+    <Container
+      disableGutters={true}
+      onMouseEnter={() => {
+        if (!props.adminPanelDrawerToggle && props.adminPanelClosedDrawerToggle)
+          props.setAdminPanelDrawerToggle(true);
+      }}
+      onMouseLeave={() => {
+        if (props.adminPanelDrawerToggle && props.adminPanelClosedDrawerToggle)
+          props.setAdminPanelDrawerToggle(false);
+      }}
+    >
+      <List className={classes.ListMain} disablePadding={true}>
+        <div>
+          <Link
+            to="/dashboard"
+            className={clsx(classes.listLink, {
+              [classes.linkSelected]:
+                location.pathname == "/dashboard" ||
+                location.pathname == "/admin" ||
+                location.pathname == "/",
+            })}
+          >
+            <ListItem button key={"dashboard"} className={classes.navListItem}>
+              <ListItemIcon>
+                <img
+                  src={
+                    location.pathname == "/dashboard"
+                      ? dashboardGIcon
+                      : dashboardIcon
+                  }
+                  alt="dashboard"
+                  className={clsx(classes.navListIcon, {
+                    [classes.linkSelectedInner]:
+                      location.pathname == "/dashboard",
+                  })}
+                />
+              </ListItemIcon>
+              <ListItemText
+                style={{ fontSize: "12px" }}
+                className={clsx(classes.navListText, {
+                  [classes.linkSelectedInner]:
+                    location.pathname == "/dashboard",
+                })}
+                primary={"Dashboard"}
+              />
+            </ListItem>
+          </Link>
+          <Link
+            to="/chat"
+            className={clsx(classes.listLink, {
+              [classes.linkSelected]: location.pathname == "/chat",
+            })}
+          >
+            <ListItem button key={"dashboard"} className={classes.navListItem}>
+              <ListItemIcon>
+                <img
+                  src={location.pathname == "/chat" ? chatGIcon : chatIcon}
+                  alt="chatIcon"
+                  className={clsx(classes.navListIcon, {
+                    [classes.linkSelectedInner]: location.pathname == "/chat",
+                  })}
+                />
+              </ListItemIcon>
+              <ListItemText
+                className={clsx(classes.navListText, {
+                  [classes.linkSelectedInner]: location.pathname == "/chats",
+                })}
+                primary={"Chats"}
+              />
+            </ListItem>
+          </Link>
+       
+          <Link
+            to="/addusers"
+            className={clsx(classes.listLink, {
+              [classes.linkSelected]: location.pathname == "/addusers",
+            })}
+          >
+            <ListItem button key={"addusers"} className={classes.navListItem}>
+              <ListItemIcon>
+                <img
+                  src={location.pathname == "/addusers" ? userGIcon : userIcon}
+                  alt="users"
+                  className={clsx(classes.navListIcon, {
+                    [classes.linkSelectedInner]:
+                      location.pathname == "/addusers",
+                  })}
+                />
+              </ListItemIcon>
+              <ListItemText
+                className={clsx(classes.navListText, {
+                  [classes.linkSelectedInner]: location.pathname == "/addusers",
+                })}
+                primary={"Users"}
+              />
+            </ListItem>
+          </Link>
+        
+   
+          <Link
+            to="/traffic"
+            className={clsx(classes.listLink, {
+              [classes.linkSelected]: location.pathname == "/traffic",
+            })}
+          >
+            <ListItem
+              button
+              key={"addprofiles"}
+              className={classes.navListItem}
+            >
+              <ListItemIcon>
+                <img
+                  src={
+                    location.pathname == "/traffic" ? trafficGIcon : trafficIcon
+                  }
+                  alt="traffic"
+                  className={clsx(classes.navListIcon, {
+                    [classes.linkSelectedInner]:
+                      location.pathname == "/traffic",
+                  })}
+                />
+              </ListItemIcon>
+              <ListItemText
+                className={clsx(classes.navListText, {
+                  [classes.linkSelectedInner]: location.pathname == "/traffic",
+                })}
+                primary={"Traffic"}
+              />
+            </ListItem>
+          </Link>
+          <Link
+            to="/reports"
+            className={clsx(classes.listLink, {
+              [classes.linkSelected]: location.pathname == "/reports",
+            })}
+          >
+            <ListItem button key={"addpages"} className={classes.navListItem}>
+              <ListItemIcon>
+                <img
+                  src={
+                    location.pathname == "/reports" ? reportGIcon : reportIcon
+                  }
+                  alt="report"
+                  className={clsx(classes.navListIcon, {
+                    [classes.linkSelectedInner]:
+                      location.pathname == "/reports",
+                  })}
+                />
+              </ListItemIcon>
+              <ListItemText
+                className={clsx(classes.navListText, {
+                  [classes.linkSelectedInner]: location.pathname == "/reports",
+                })}
+                primary={"Reports"}
+              />
+            </ListItem>
+          </Link>
+        </div>
+        <div>
+          <Link
+            to="/setting"
+            className={clsx(classes.listLink, {
+              [classes.linkSelected]:
+                location.pathname == "/setting" ||
+                location.pathname == "/setting/facebook" ||
+                location.pathname == "/setting/website" ||
+                location.pathname == "/setting/chatpage" ||
+                location.pathname == "/setting/cannedResponse" ||
+                location.pathname == "/setting/label",
+            })}
+          >
+            <ListItem button key={"setting"} className={classes.navListItem}>
+              <ListItemIcon>
+                <img
+                  src={
+                    location.pathname == "/setting" ||
+                    location.pathname == "/setting/facebook" ||
+                    location.pathname == "/setting/website" ||
+                    location.pathname == "/setting/chatpage" ||
+                    location.pathname == "/setting/cannedResponse" ||
+                    location.pathname == "/setting/label"
+                      ? settingGIcon
+                      : settingIcon
+                  }
+                  className={classes.navListIcon}
+                />
+              </ListItemIcon>
+              <ListItemText
+                className={classes.navListText}
+                primary={"Setting"}
+              />
+            </ListItem>
+          </Link>
+          <Link
+            to="/help"
+            className={clsx(classes.listLink, {
+              [classes.linkSelected]: location.pathname == "/help",
+            })}
+          >
+            <ListItem button key={"help"} className={classes.navListItem}>
+              <ListItemIcon>
+                <img
+                  src={location.pathname == "/help" ? helpGIcon : helpIcon}
+                  className={classes.navListIcon}
+                />
+              </ListItemIcon>
+              <ListItemText className={classes.navListText} primary={"Help"} />
+            </ListItem>
+          </Link>
+          <Link
+            to="#"
+            onClick={() => logout()}
+            className={clsx(classes.listLink)}
+          >
+            <ListItem button key={"logout"} className={classes.navListItem}>
+              <ListItemIcon>
+                <img src={LogoutIcon} className={classes.navListIcon} />
+              </ListItemIcon>
+              <ListItemText
+                className={classes.navListText}
+                primary={"Logout"}
+              />
+            </ListItem>
+          </Link>
+        </div>
+      </List>
+    </Container>
+  );
+};
+
+const mapStateToProps = (state) => {
+  return { ...state.AdminPanelReducer };
+};
+export default connect(mapStateToProps, {
+  setAdminPanelDrawerToggle,
+  setAdminPanelChatBoxDrawerToggle,
+})(NavigationList);

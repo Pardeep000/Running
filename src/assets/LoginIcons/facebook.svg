@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="60" viewBox="0 0 60 60">
+  <defs>
+    <clipPath id="clip-path">
+      <circle id="Ellipse_9" data-name="Ellipse 9" cx="30" cy="30" r="30" transform="translate(-11856 -265)" fill="#1473e6"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_16" data-name="Mask Group 16" transform="translate(11856 265)" clip-path="url(#clip-path)">
+    <path id="FACEBOOK" d="M9.908,10.421H6v5.211H9.908V31.264h6.513V15.632h4.744l.466-5.211H16.421V8.25c0-1.244.25-1.736,1.452-1.736h3.758V0h-4.96C11.987,0,9.908,2.062,9.908,6.012Z" transform="translate(-11839.816 -250.632)" fill="#929594"/>
+  </g>
+</svg>
